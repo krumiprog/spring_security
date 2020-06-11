@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+    <div th:replace="fragments :: navbar"></div>
+
+    <div class="container">
+
+        <div class="card text-center my-2" th:each="post : ${posts}">
+            <div class="card-header font-weight-bold" th:text="${post.title}"></div>
+            <div class="card-body">
+                <p class="card-text" th:text="${post.text}"></p>
+            </div>
+            <div class="card-footer text-muted" th:text="${post.author.username}"></div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+
+</body>
+</html>

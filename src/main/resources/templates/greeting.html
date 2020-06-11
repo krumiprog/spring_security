@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+    <div th:replace="fragments :: navbar"></div>
+
+    <div class="container">
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
+             th:if="!${#httpServletRequest.remoteUser}">
+            <h1 class="display-4">Welcom, Guest!</h1>
+        </div>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
+             th:unless="!${#httpServletRequest.remoteUser}">
+            <h1 class="display-4" th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments :: bootstrap_scripts"></th:block>
+
+</body>
+</html>
